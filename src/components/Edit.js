@@ -31,11 +31,15 @@ class Edit extends Component {
      }).catch(console.log)
  }
     
-updatePost()
+// updatePost()
     
 
     // Insert into the deletePost 
-
+    deletePost(){
+        axios.delete(`/api/blogs/${this.props.match.params.id}`).then(results=>{
+            this.props.history.push('/search')
+        }).catch(console.log)
+    }
     
     render() {
         let {title, subTitle, image, text} = this.state;

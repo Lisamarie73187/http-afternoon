@@ -14,8 +14,17 @@ class User extends Component{
         }
     }
 
-    // insert componentWillMount
-    
+    componentWillMount(){
+        let user = this.props.match.params.id;
+        axios.get(`api/user${userID}`).then( resp => {
+            let users = resp.data
+            this.setState ({
+                user:user
+            })
+        }
+            
+        )
+    }    
 
     render(){
         const user = this.state.user

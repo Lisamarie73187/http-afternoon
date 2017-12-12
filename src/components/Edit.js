@@ -31,14 +31,17 @@ class Edit extends Component {
      }).catch(console.log)
  }
     
-// updatePost()
-    
+updatePost(){
+    axios.put(`api/blog/${this.props.match.params.id}`, body).then( resp => {
+        this.props.history.push(`/blog/${this.props.match.params.id}`)
+    }).catch(console.log)
+}    
 
-    // Insert into the deletePost 
-    deletePost(){
-        axios.delete(`/api/blogs/${this.props.match.params.id}`).then(results=>{
+
+deletePost(){
+    axios.delete(`/api/blogs/${this.props.match.params.id}`).then(results=>{
             this.props.history.push('/search')
-        }).catch(console.log)
+    }).catch(console.log)
     }
     
     render() {
